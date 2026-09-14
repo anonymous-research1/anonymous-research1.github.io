@@ -4,19 +4,366 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Avoid search-engine indexing during anonymous review -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
 
-    <title>Anonymous Project Page</title>
+    <title>TouchTherm Twins</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #ffffff;
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 72px 20px 45px;
+        }
+
+        h1 {
+            font-size: 46px;
+            margin: 0 0 12px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #444;
+            max-width: 900px;
+            margin: 0 auto 18px;
+            line-height: 1.35;
+        }
+
+        .authors {
+            font-size: 19px;
+            color: #666;
+            margin-top: 18px;
+        }
+
+        .review-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .button:hover {
+            background: #555;
+        }
+
+        /* Sections */
+        section {
+            margin: 65px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 28px;
+        }
+
+        p {
+            font-size: 17px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Placeholder image areas */
+        .figure-placeholder {
+            width: 100%;
+            min-height: 280px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+            margin: 24px 0;
+        }
+
+        /* Result cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            padding: 22px;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* Video */
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding-top: 45px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Anonymous Project Page</h1>
+<header>
+    <div class="container">
 
-    <p>Under double-anonymous review.</p>
+        <h1>TouchTherm Twins</h1>
 
-    <p>The full project page will be available here.</p>
+        <div class="subtitle">
+            Visuo-Tactile-Thermal Object Assets for Contact-Rich Robotic Simulation
+        </div>
+
+        <div class="authors">
+            Anonymous Authors
+        </div>
+
+        <div class="review-note">
+            Under double-anonymous review
+        </div>
+
+        <!-- We will activate these buttons later -->
+        <div class="buttons">
+            <a class="button" href="#method">Method</a>
+            <a class="button" href="#results">Results</a>
+            <a class="button" href="#video">Video</a>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- ================= TEASER ================= -->
+
+    <section id="teaser">
+
+        <div class="figure-placeholder">
+            Teaser figure will be placed here
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABSTRACT ================= -->
+
+    <section id="abstract">
+
+        <h2>Abstract</h2>
+
+        <p>
+            This project introduces simulation-ready object assets that combine
+            object-scale geometry, tactile micro-geometry, and dynamic surface
+            temperature fields for contact-rich robotic simulation.
+        </p>
+
+        <p>
+            The reconstructed assets support visual rendering, optical tactile
+            simulation under matched contacts, and spatiotemporal thermal queries
+            within a unified object representation.
+        </p>
+
+    </section>
+
+
+    <!-- ================= METHOD ================= -->
+
+    <section id="method">
+
+        <h2>Method Overview</h2>
+
+        <div class="figure-placeholder">
+            Method figure will be placed here
+        </div>
+
+        <p>
+            Our pipeline reconstructs a coarse metric object mesh, registered
+            tactile micro-height fields, and a dynamic surface-temperature field.
+            These modalities are combined into a unified simulation-ready object
+            asset that can be queried during contact-rich simulation.
+        </p>
+
+    </section>
+
+
+    <!-- ================= RESULTS ================= -->
+
+    <section id="results">
+
+        <h2>Simulation Results</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Geometry</h3>
+                <p>
+                    Object-scale geometry provides visual representation and
+                    coarse collision geometry.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Tactile</h3>
+                <p>
+                    Registered micro-height fields reproduce local surface
+                    structures for optical tactile rendering.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Thermal</h3>
+                <p>
+                    Dynamic temperature fields enable spatial and temporal
+                    surface-temperature queries.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TACTILE ================= -->
+
+    <section>
+
+        <h2>Visuo-Tactile Simulation</h2>
+
+        <div class="figure-placeholder">
+            Real vs. simulated tactile results will be placed here
+        </div>
+
+    </section>
+
+
+    <!-- ================= THERMAL ================= -->
+
+    <section>
+
+        <h2>Dynamic Thermal Simulation</h2>
+
+        <div class="figure-placeholder">
+            Dynamic thermal reconstruction results will be placed here
+        </div>
+
+    </section>
+
+
+    <!-- ================= OBJECT ASSETS ================= -->
+
+    <section>
+
+        <h2>Object Assets</h2>
+
+        <div class="figure-placeholder">
+            Object asset collection will be placed here
+        </div>
+
+    </section>
+
+
+    <!-- ================= VIDEO ================= -->
+
+    <section id="video">
+
+        <h2>Video</h2>
+
+        <div class="figure-placeholder">
+            Supplementary video will be placed here
+        </div>
+
+    </section>
+
+
+    <!-- ================= CODE ================= -->
+
+    <section>
+
+        <h2>Code and Data</h2>
+
+        <p class="center">
+            Code and object assets will be released upon acceptance.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    Anonymous project page · Under double-anonymous review
+</footer>
+
 
 </body>
 </html>
