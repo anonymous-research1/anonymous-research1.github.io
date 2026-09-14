@@ -8,165 +8,637 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex, nofollow">
 
-    <title>TouchTherm Twins</title>
+    <meta
+        name="description"
+        content="Anonymous project page for TouchTherm: Building Multimodal Digital Twins of Objects for Tactile and Thermal Rendering."
+    >
+
+    <title>TouchTherm | Anonymous Project Page</title>
 
     <style>
+        :root {
+            --text: #202124;
+            --muted: #62676f;
+            --light-muted: #8a9099;
+
+            --border: #e5e7eb;
+            --soft-bg: #f7f8fa;
+            --soft-bg-2: #fbfbfc;
+
+            --tactile: #4f8fbf;
+            --thermal: #d8844f;
+            --asset: #7869ad;
+
+            --text-width: 860px;
+            --figure-width: 1240px;
+        }
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #222;
+            color: var(--text);
             background: #ffffff;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
             line-height: 1.65;
         }
 
-        .container {
-            max-width: 1000px;
+        a {
+            color: inherit;
+        }
+
+        /* =========================================================
+           GLOBAL LAYOUT
+        ========================================================= */
+
+        .text-wrap {
+            width: min(var(--text-width), calc(100% - 48px));
             margin: 0 auto;
-            padding: 0 28px;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 72px 20px 45px;
+        .wide-wrap {
+            width: min(var(--figure-width), calc(100% - 48px));
+            margin: 0 auto;
         }
 
-        h1 {
-            font-size: 46px;
-            margin: 0 0 12px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: #444;
-            max-width: 900px;
-            margin: 0 auto 18px;
-            line-height: 1.35;
-        }
-
-        .authors {
-            font-size: 19px;
-            color: #666;
-            margin-top: 18px;
-        }
-
-        .review-note {
-            font-size: 14px;
-            color: #888;
-            margin-top: 5px;
-        }
-
-        /* Buttons */
-        .buttons {
-            margin-top: 28px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 7px;
-            font-size: 15px;
-        }
-
-        .button:hover {
-            background: #555;
-        }
-
-        /* Sections */
         section {
-            margin: 65px 0;
+            padding: 82px 0;
+        }
+
+        section.compact {
+            padding: 58px 0;
+        }
+
+        .section-alt {
+            background: var(--soft-bg-2);
+            border-top: 1px solid #f0f1f3;
+            border-bottom: 1px solid #f0f1f3;
+        }
+
+        .eyebrow {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--light-muted);
+            margin-bottom: 12px;
         }
 
         h2 {
+            margin: 0 0 18px;
             text-align: center;
-            font-size: 30px;
-            margin-bottom: 28px;
+            font-size: 34px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .section-lead {
+            max-width: 760px;
+            margin: 0 auto 38px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 17px;
         }
 
         p {
             font-size: 17px;
+            margin: 0 0 18px;
         }
 
-        .center {
+        strong {
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            padding: 86px 24px 50px;
             text-align: center;
         }
 
-        /* Placeholder image areas */
-        .figure-placeholder {
-            width: 100%;
-            min-height: 280px;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 16px;
-            margin: 24px 0;
+        .project-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--light-muted);
+            margin-bottom: 18px;
         }
 
-        /* Result cards */
-        .grid {
+        .hero h1 {
+            margin: 0;
+            font-size: 58px;
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+            font-weight: 760;
+        }
+
+        .hero-subtitle {
+            max-width: 1000px;
+            margin: 18px auto 0;
+            color: #3f4349;
+            font-size: 27px;
+            line-height: 1.35;
+            font-weight: 400;
+        }
+
+        .authors {
+            margin-top: 24px;
+            font-size: 18px;
+            color: var(--muted);
+        }
+
+        .review-note {
+            margin-top: 4px;
+            font-size: 13px;
+            color: var(--light-muted);
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 108px;
+            padding: 10px 19px;
+            border: 1px solid #2f3135;
+            border-radius: 8px;
+            background: #2f3135;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.18s ease;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-1px);
+            background: #151618;
+        }
+
+        .hero-button.secondary {
+            background: white;
+            color: #2f3135;
+        }
+
+        .hero-button.secondary:hover {
+            background: #f5f5f5;
+        }
+
+        /* =========================================================
+           FIGURES
+        ========================================================= */
+
+        .hero-figure {
+            padding: 26px 0 32px;
+        }
+
+        .hero-figure img,
+        .method-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .hero-figure img {
+            max-width: 1120px;
+        }
+
+        .method-figure img {
+            max-width: 1220px;
+        }
+
+        .figure-caption {
+            max-width: 850px;
+            margin: 16px auto 0;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* =========================================================
+           TAKEAWAY
+        ========================================================= */
+
+        .takeaway {
+            width: min(1040px, calc(100% - 48px));
+            margin: 18px auto 70px;
+            padding: 29px 36px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: linear-gradient(
+                110deg,
+                rgba(79, 143, 191, 0.055),
+                rgba(120, 105, 173, 0.045),
+                rgba(216, 132, 79, 0.055)
+            );
+            text-align: center;
+        }
+
+        .takeaway-text {
+            margin: 0;
+            font-size: 22px;
+            line-height: 1.52;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        /* =========================================================
+           ABSTRACT
+        ========================================================= */
+
+        .abstract {
+            font-size: 17px;
+            color: #34383d;
+        }
+
+        /* =========================================================
+           CONTRIBUTIONS
+        ========================================================= */
+
+        .contribution-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 17px;
+        }
+
+        .contribution-card {
+            position: relative;
+            padding: 25px 22px 23px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: white;
+            overflow: hidden;
+        }
+
+        .contribution-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 3px;
+            background: #999;
+        }
+
+        .contribution-card.asset::before {
+            background: var(--asset);
+        }
+
+        .contribution-card.tactile::before {
+            background: var(--tactile);
+        }
+
+        .contribution-card.thermal::before {
+            background: var(--thermal);
+        }
+
+        .contribution-card.validation::before {
+            background: linear-gradient(
+                90deg,
+                var(--tactile),
+                var(--asset),
+                var(--thermal)
+            );
+        }
+
+        .contribution-number {
+            color: var(--light-muted);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .contribution-card h3 {
+            margin: 0 0 10px;
+            font-size: 19px;
+            line-height: 1.3;
+        }
+
+        .contribution-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           METHOD
+        ========================================================= */
+
+        .method-summary {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
-            margin-top: 25px;
+            margin-bottom: 42px;
         }
 
-        .card {
-            border: 1px solid #e1e1e1;
-            border-radius: 10px;
-            padding: 22px;
-            background: #fafafa;
+        .method-card {
+            padding: 22px 23px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .method-card h3 {
+            margin: 0 0 9px;
+            font-size: 18px;
+        }
+
+        .method-card p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .method-card.geometry {
+            border-top: 3px solid #8a8f97;
+        }
+
+        .method-card.tactile {
+            border-top: 3px solid var(--tactile);
+        }
+
+        .method-card.thermal {
+            border-top: 3px solid var(--thermal);
+        }
+
+        /* =========================================================
+           METRICS
+        ========================================================= */
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 36px;
+        }
+
+        .metric-card {
+            padding: 26px 18px 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: white;
             text-align: center;
         }
 
-        .card h3 {
-            margin-top: 0;
+        .metric-value {
+            font-size: 34px;
+            font-weight: 750;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
         }
 
-        /* Video */
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 80px;
-            padding: 30px;
-            text-align: center;
+        .metric-label {
+            margin-top: 8px;
             font-size: 14px;
-            color: #888;
-            border-top: 1px solid #eee;
+            font-weight: 600;
+            color: #45494f;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
+        .metric-note {
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--light-muted);
+        }
+
+        /* =========================================================
+           RESULT BLOCKS
+        ========================================================= */
+
+        .result-block {
+            display: grid;
+            grid-template-columns: 0.86fr 1.14fr;
+            gap: 44px;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .result-block + .result-block {
+            border-top: 1px solid var(--border);
+        }
+
+        .result-tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: #f0f2f5;
+            color: #5c6168;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .result-block h3 {
+            margin: 0 0 13px;
+            font-size: 27px;
+            line-height: 1.25;
+        }
+
+        .result-block p {
+            color: var(--muted);
+        }
+
+        .mini-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .mini-metric {
+            padding: 22px 16px;
+            border-radius: 11px;
+            border: 1px solid var(--border);
+            background: var(--soft-bg);
+            text-align: center;
+        }
+
+        .mini-value {
+            display: block;
+            font-size: 28px;
+            line-height: 1.15;
+            font-weight: 750;
+            letter-spacing: -0.03em;
+        }
+
+        .mini-label {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           APPLICATIONS
+        ========================================================= */
+
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .application-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: white;
+            padding: 28px;
+        }
+
+        .application-card h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+        }
+
+        .application-card > p {
+            margin-bottom: 22px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .app-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .app-stat {
+            padding: 14px 8px;
+            border-radius: 9px;
+            background: var(--soft-bg);
+            text-align: center;
+        }
+
+        .app-stat strong {
+            display: block;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .app-stat span {
+            display: block;
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================================================
+           RELEASE
+        ========================================================= */
+
+        .release-box {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 31px 34px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--soft-bg);
+            text-align: center;
+        }
+
+        .release-box p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 32px 20px 45px;
+            text-align: center;
+            color: var(--light-muted);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+            .contribution-grid,
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .subtitle {
-                font-size: 20px;
+            .method-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .hero {
+                padding-top: 56px;
             }
 
-            .grid {
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-subtitle {
+                font-size: 21px;
+            }
+
+            section {
+                padding: 62px 0;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            .takeaway {
+                padding: 23px 22px;
+                margin-bottom: 50px;
+            }
+
+            .takeaway-text {
+                font-size: 19px;
+            }
+
+            .contribution-grid,
+            .metrics-grid,
+            .application-grid,
+            .result-block {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                padding-top: 45px;
+            .result-block {
+                gap: 20px;
+            }
+
+            .app-stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -174,200 +646,625 @@
 
 <body>
 
-<header>
-    <div class="container">
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-        <h1>TouchTherm Twins</h1>
+<header class="hero">
 
-        <div class="subtitle">
-            Visuo-Tactile-Thermal Object Assets for Contact-Rich Robotic Simulation
-        </div>
-
-        <div class="authors">
-            Anonymous Authors
-        </div>
-
-        <div class="review-note">
-            Under double-anonymous review
-        </div>
-
-        <!-- We will activate these buttons later -->
-        <div class="buttons">
-            <a class="button" href="#method">Method</a>
-            <a class="button" href="#results">Results</a>
-            <a class="button" href="#video">Video</a>
-        </div>
-
+    <div class="project-label">
+        Anonymous Project Page
     </div>
+
+    <h1>TouchTherm</h1>
+
+    <div class="hero-subtitle">
+        Building Multimodal Digital Twins of Objects for
+        Tactile and Thermal Rendering
+    </div>
+
+    <div class="authors">
+        Anonymous Authors
+    </div>
+
+    <div class="review-note">
+        Under double-anonymous review
+    </div>
+
+    <nav class="hero-buttons">
+        <a class="hero-button" href="#overview">Overview</a>
+        <a class="hero-button secondary" href="#method">Method</a>
+        <a class="hero-button secondary" href="#results">Results</a>
+        <a class="hero-button secondary" href="#applications">Applications</a>
+    </nav>
+
 </header>
 
 
-<main class="container">
+<!-- =========================================================
+     TEASER
+========================================================= -->
 
-    <!-- ================= TEASER ================= -->
+<section class="hero-figure compact" id="overview">
 
-    <section id="teaser">
-
-    <img
-        src="teasergithub.png"
-        alt="TouchTherm Twins teaser"
-        style="width: 100%; height: auto; display: block; margin: 0 auto;"
-    >
-
-    </section>
-
-
-    <!-- ================= ABSTRACT ================= -->
-
-    <section id="abstract">
-
-        <h2>Abstract</h2>
-
-        <p>
-            This project introduces simulation-ready object assets that combine
-            object-scale geometry, tactile micro-geometry, and dynamic surface
-            temperature fields for contact-rich robotic simulation.
-        </p>
-
-        <p>
-            The reconstructed assets support visual rendering, optical tactile
-            simulation under matched contacts, and spatiotemporal thermal queries
-            within a unified object representation.
-        </p>
-
-    </section>
-
-
-    <!-- ================= METHOD ================= -->
-
-    <section id="method">
-
-        <h2>Method Overview</h2>
+    <div class="wide-wrap">
 
         <img
-            src="pipeline_github.png"
-            alt="TouchTherm Twins reconstruction method"
-            style="width: 100%; height: auto; display: block; margin: 24px auto;"
+            src="teasergithub.png"
+            alt="TouchTherm overview: real object, multimodal object asset, and simulator queries"
         >
 
-        <p>
-            Our pipeline reconstructs a coarse metric object mesh, registered
-            tactile micro-height fields, and a dynamic surface-temperature field.
-            These modalities are combined into a unified simulation-ready object
-            asset that can be queried during contact-rich simulation.
+        <div class="figure-caption">
+            TouchTherm constructs simulation-ready object assets that combine
+            object-scale geometry, contact-aligned tactile micro-geometry,
+            and dynamic thermal fields for multimodal sensory rendering.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TAKEAWAY
+========================================================= -->
+
+<div class="takeaway">
+
+    <p class="takeaway-text">
+        <strong>TouchTherm converts real objects into reusable multimodal
+        simulation assets</strong> by combining coarse collision geometry,
+        registered tactile micro-height fields, and an object-specific
+        dynamic thermal field.
+    </p>
+
+</div>
+
+
+<!-- =========================================================
+     ABSTRACT
+========================================================= -->
+
+<section class="compact">
+
+    <div class="text-wrap">
+
+        <div class="eyebrow">Overview</div>
+        <h2>Abstract</h2>
+
+        <div class="abstract">
+
+            <p>
+                Robotic simulation and virtual reality increasingly require
+                object assets that represent not only visual geometry, but
+                also the physical cues underlying tactile and thermal
+                interaction. Existing 3D reconstruction pipelines largely
+                focus on object-scale geometry and appearance, while
+                contact-scale surface structure and transient temperature
+                dynamics remain difficult to represent.
+            </p>
+
+            <p>
+                TouchTherm constructs simulation-ready
+                visuo-tactile-thermal object assets from real-world objects.
+                A coarse metric mesh is augmented with registered
+                tangent-space micro-height fields for optical tactile
+                rendering, while synchronized multiview infrared observations
+                are used to reconstruct a physics-regularized dynamic thermal
+                field. These representations are integrated into a unified
+                object asset for tactile rendering and spatiotemporal
+                temperature queries.
+            </p>
+
+            <p>
+                Across <strong>20 objects</strong>, the reconstructed assets
+                preserve contact-relevant surface structure, achieve
+                held-out thermal surface MAEs of
+                <strong>0.465 °C at 30 s</strong> and
+                <strong>0.592 °C at 45 s</strong>, improve
+                synthetic-to-real tactile object recognition, and support
+                spatially and temporally varying thermal feedback in VR.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTRIBUTIONS
+========================================================= -->
+
+<section class="section-alt">
+
+    <div class="wide-wrap">
+
+        <div class="eyebrow">Contributions</div>
+        <h2>What TouchTherm Provides</h2>
+
+        <p class="section-lead">
+            A unified object-level representation for visual geometry,
+            tactile micro-geometry, and dynamic surface temperature.
         </p>
 
-    </section>
+        <div class="contribution-grid">
 
-
-    <!-- ================= RESULTS ================= -->
-
-    <section id="results">
-
-        <h2>Simulation Results</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>Geometry</h3>
+            <div class="contribution-card asset">
+                <div class="contribution-number">01</div>
+                <h3>Multimodal Object Twins</h3>
                 <p>
-                    Object-scale geometry provides visual representation and
-                    coarse collision geometry.
+                    Registered visual geometry, tactile micro-height fields,
+                    and dynamic thermal fields within a shared object frame.
                 </p>
             </div>
 
-            <div class="card">
-                <h3>Tactile</h3>
+            <div class="contribution-card tactile">
+                <div class="contribution-number">02</div>
+                <h3>Tactile Rendering</h3>
                 <p>
-                    Registered micro-height fields reproduce local surface
-                    structures for optical tactile rendering.
+                    Contact-conditioned optical tactile rendering from
+                    reconstructed micro-height fields while preserving a
+                    coarse collision mesh.
                 </p>
             </div>
 
-            <div class="card">
-                <h3>Thermal</h3>
+            <div class="contribution-card thermal">
+                <div class="contribution-number">03</div>
+                <h3>Dynamic Thermal Field</h3>
                 <p>
-                    Dynamic temperature fields enable spatial and temporal
-                    surface-temperature queries.
+                    Object-specific surface-temperature dynamics reconstructed
+                    from multiview infrared cooling observations.
+                </p>
+            </div>
+
+            <div class="contribution-card validation">
+                <div class="contribution-number">04</div>
+                <h3>Validation & Applications</h3>
+                <p>
+                    Evaluation on 20 objects together with synthetic-to-real
+                    tactile recognition and wearable thermal feedback in VR.
                 </p>
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================= TACTILE ================= -->
+<!-- =========================================================
+     METHOD
+========================================================= -->
 
-    <section>
+<section id="method">
 
-        <h2>Visuo-Tactile Simulation</h2>
+    <div class="wide-wrap">
 
-        <div class="figure-placeholder">
-            Real vs. simulated tactile results will be placed here
-        </div>
+        <div class="eyebrow">Reconstruction Pipeline</div>
+        <h2>Method</h2>
 
-    </section>
-
-
-    <!-- ================= THERMAL ================= -->
-
-    <section>
-
-        <h2>Dynamic Thermal Simulation</h2>
-
-        <div class="figure-placeholder">
-            Dynamic thermal reconstruction results will be placed here
-        </div>
-
-    </section>
-
-
-    <!-- ================= OBJECT ASSETS ================= -->
-
-    <section>
-
-        <h2>Object Assets</h2>
-
-        <div class="figure-placeholder">
-            Object asset collection will be placed here
-        </div>
-
-    </section>
-
-
-    <!-- ================= VIDEO ================= -->
-
-    <section id="video">
-
-        <h2>Video</h2>
-
-        <div class="figure-placeholder">
-            Supplementary video will be placed here
-        </div>
-
-    </section>
-
-
-    <!-- ================= CODE ================= -->
-
-    <section>
-
-        <h2>Code and Data</h2>
-
-        <p class="center">
-            Code and object assets will be released upon acceptance.
+        <p class="section-lead">
+            The acquisition streams are registered to a common object frame,
+            where tactile micro-geometry and dynamic thermal fields are
+            reconstructed in two complementary branches.
         </p>
 
-    </section>
+        <div class="method-summary">
 
-</main>
+            <div class="method-card geometry">
+                <h3>Object Geometry</h3>
+                <p>
+                    Structured-light scanning provides the metric object mesh
+                    used for visual rendering and coarse collision geometry.
+                </p>
+            </div>
 
+            <div class="method-card tactile">
+                <h3>Tactile Micro-Geometry</h3>
+                <p>
+                    Photometric-stereo normal maps are registered to the mesh
+                    and converted into local tangent-space micro-height fields
+                    for tactile rendering.
+                </p>
+            </div>
+
+            <div class="method-card thermal">
+                <h3>Dynamic Thermal Field</h3>
+                <p>
+                    Multiview infrared cooling observations are fused on the
+                    surface and used to identify object-specific thermal
+                    dynamics for runtime rollout.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="method-figure">
+
+            <img
+                src="pipeline_github.png"
+                alt="TouchTherm reconstruction pipeline"
+            >
+
+            <div class="figure-caption">
+                TouchTherm reconstruction pipeline: hardware acquisition,
+                tactile micro-height reconstruction, dynamic thermal-field
+                reconstruction, and the resulting multimodal object assets.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ASSET OVERVIEW
+========================================================= -->
+
+<section class="section-alt">
+
+    <div class="text-wrap">
+
+        <div class="eyebrow">Dataset</div>
+        <h2>20 Multimodal Object Assets</h2>
+
+        <p class="section-lead">
+            The collection spans flat, curved, cylindrical, and free-form
+            geometries together with smooth, granular, embossed, and
+            anisotropic surface structures.
+        </p>
+
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+                <div class="metric-value">20</div>
+                <div class="metric-label">Real Objects</div>
+                <div class="metric-note">
+                    Reconstructed as aligned multimodal assets
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Modal Components</div>
+                <div class="metric-note">
+                    Geometry · Tactile · Thermal
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-value">5–7</div>
+                <div class="metric-label">Typical Normal Views</div>
+                <div class="metric-note">
+                    For three-dimensional objects
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-value">12</div>
+                <div class="metric-label">Views for Complex Shapes</div>
+                <div class="metric-note">
+                    Maximum used in the current collection
+                </div>
+            </div>
+
+        </div>
+
+        <!--
+        Later, after uploading Fig. 3, insert:
+
+        <img
+            src="object_assets.png"
+            alt="Twenty reconstructed TouchTherm objects"
+            style="width:100%; margin-top:40px;"
+        >
+        -->
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESULTS
+========================================================= -->
+
+<section id="results">
+
+    <div class="wide-wrap">
+
+        <div class="eyebrow">Evaluation</div>
+        <h2>Results</h2>
+
+        <p class="section-lead">
+            We evaluate tactile appearance, dynamic thermal prediction,
+            and the downstream utility of the reconstructed multimodal assets.
+        </p>
+
+
+        <!-- TACTILE -->
+
+        <div class="result-block">
+
+            <div>
+                <span class="result-tag">Tactile Appearance</span>
+
+                <h3>Real-to-Simulation Tactile Rendering</h3>
+
+                <p>
+                    Across 20 objects, matched real and simulated GelSight
+                    observations preserve dominant surface structures and
+                    contact-scale patterns beyond what is available from
+                    coarse geometry alone.
+                </p>
+
+                <p>
+                    The proposed PnP-based metric surface sampling and
+                    tangent-space reconstruction also achieves the strongest
+                    performance in the tactile ablation.
+                </p>
+            </div>
+
+            <div class="mini-metrics">
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.0712</span>
+                    <span class="mini-label">
+                        Real–Sim G-SSIM
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.0775</span>
+                    <span class="mini-label">
+                        Real–Sim HF-NCC
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.0701</span>
+                    <span class="mini-label">
+                        Ours · Ablation G-SSIM
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.0911</span>
+                    <span class="mini-label">
+                        Ours · Ablation HF-NCC
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- THERMAL -->
+
+        <div class="result-block">
+
+            <div>
+                <span class="result-tag">Dynamic Thermal Field</span>
+
+                <h3>Long-Horizon Temperature Prediction</h3>
+
+                <p>
+                    The reconstructed temperature fields preserve both global
+                    cooling behavior and spatial temperature patterns over
+                    held-out future frames.
+                </p>
+
+                <p>
+                    Surface MAE remains below 0.6 °C at the reported
+                    30 s and 45 s prediction horizons.
+                </p>
+            </div>
+
+            <div class="mini-metrics">
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.465 °C</span>
+                    <span class="mini-label">
+                        Surface MAE · 30 s
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.592 °C</span>
+                    <span class="mini-label">
+                        Surface MAE · 45 s
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.793</span>
+                    <span class="mini-label">
+                        Hotspot F1 · 30 s
+                    </span>
+                </div>
+
+                <div class="mini-metric">
+                    <span class="mini-value">0.708</span>
+                    <span class="mini-label">
+                        Hotspot F1 · 45 s
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--
+        Later add tactile / thermal figures here.
+
+        Suggested files:
+
+        tactile_real_sim.png
+        tactile_ablation.png
+        thermal_rollout.png
+        -->
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     APPLICATIONS
+========================================================= -->
+
+<section class="section-alt" id="applications">
+
+    <div class="wide-wrap">
+
+        <div class="eyebrow">Downstream Utility</div>
+        <h2>Applications</h2>
+
+        <p class="section-lead">
+            Beyond reconstruction quality, we evaluate whether the assets
+            provide useful signals for perception and immersive interaction.
+        </p>
+
+        <div class="application-grid">
+
+            <div class="application-card">
+
+                <h3>
+                    Synthetic-to-Real Tactile Recognition
+                </h3>
+
+                <p>
+                    A ResNet-18 trained only on simulated GelSight observations
+                    transfers more effectively to real tactile images when
+                    using TouchTherm micro-geometry than coarse geometry alone.
+                </p>
+
+                <div class="app-stats">
+
+                    <div class="app-stat">
+                        <strong>34.0%</strong>
+                        <span>
+                            Top-1<br>
+                            vs. 20.0%
+                        </span>
+                    </div>
+
+                    <div class="app-stat">
+                        <strong>63.0%</strong>
+                        <span>
+                            Top-3<br>
+                            vs. 35.0%
+                        </span>
+                    </div>
+
+                    <div class="app-stat">
+                        <strong>29.3%</strong>
+                        <span>
+                            Macro-F1<br>
+                            vs. 13.4%
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="application-card">
+
+                <h3>
+                    Thermal Feedback in VR
+                </h3>
+
+                <p>
+                    A wearable thermal-feedback platform demonstrates
+                    spatially and temporally varying thermal cues reconstructed
+                    from the object-level dynamic thermal field.
+                </p>
+
+                <div class="app-stats">
+
+                    <div class="app-stat">
+                        <strong>10</strong>
+                        <span>
+                            Participants
+                        </span>
+                    </div>
+
+                    <div class="app-stat">
+                        <strong>6.30 / 7</strong>
+                        <span>
+                            Visual–thermal
+                            consistency
+                        </span>
+                    </div>
+
+                    <div class="app-stat">
+                        <strong>6.40 / 7</strong>
+                        <span>
+                            Wearing
+                            comfort
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--
+        Later add Fig. 8 here:
+
+        <img
+            src="thermal_vr.png"
+            alt="Wearable thermal-feedback VR application"
+            style="width:100%; max-width:900px; display:block; margin:40px auto 0;"
+        >
+        -->
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CODE AND DATA
+========================================================= -->
+
+<section>
+
+    <div class="text-wrap">
+
+        <div class="eyebrow">Release</div>
+        <h2>Code & Object Assets</h2>
+
+        <div class="release-box">
+            <p>
+                Code, reconstructed object assets, and the simulation pipeline
+                will be released upon acceptance.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
     Anonymous project page · Under double-anonymous review
 </footer>
-
 
 </body>
 </html>
