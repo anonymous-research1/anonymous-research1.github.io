@@ -14,6 +14,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(42, 1, 0.001, 10000);
+camera.up.set(-0.1049, 0.9878, -0.1148).normalize();
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
@@ -303,7 +304,7 @@ async function start() {
   center.copy(geometry.boundingSphere.center);
   const radius = geometry.boundingSphere.radius;
   controls.target.copy(center);
-  camera.position.copy(center).add(new THREE.Vector3(1.45, -1.65, 1.15).normalize().multiplyScalar(radius * 2.8));
+  camera.position.copy(center).add(new THREE.Vector3(1.45, -1.65, -1.15).normalize().multiplyScalar(radius * 3.4));
   camera.near = Math.max(radius / 1000, 1e-6);
   camera.far = radius * 20;
   camera.updateProjectionMatrix();
