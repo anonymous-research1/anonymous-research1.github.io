@@ -958,35 +958,15 @@
         <div class="abstract">
 
             <p>
-                Robotic simulation and virtual reality increasingly require
-                object assets that represent not only visual geometry, but
-                also the physical cues underlying tactile and thermal
-                interaction. Existing 3D reconstruction pipelines largely
-                focus on object-scale geometry and appearance, while
-                contact-scale surface structure and transient temperature
-                dynamics remain difficult to represent.
+                Robotic simulation and virtual reality increasingly require object assets that capture not only visual geometry, but also the physical cues underlying tactile and thermal interaction. However, existing 3D datasets and reconstruction methods primarily represent object-scale geometry and visual appearance, overlooking the microscale surface structure needed for high-fidelity haptic rendering and the transient temperature dynamics required for temperature-aware interaction. We present TouchTherm, a framework for constructing simulation-ready visuo-tactile-thermal object assets from real-world objects.
             </p>
 
             <p>
-                TouchTherm constructs simulation-ready
-                visuo-tactile-thermal object assets from real-world objects.
-                A coarse metric mesh is augmented with registered
-                tangent-space micro-height fields for optical tactile
-                rendering, while synchronized multiview infrared observations
-                are used to reconstruct a physics-regularized dynamic thermal
-                field. These representations are integrated into a unified
-                object asset for tactile rendering and spatiotemporal
-                temperature queries.
+                For visual and tactile reconstruction, we combine a high-fidelity handheld structured-light scanner with multiview normal maps obtained from photometric stereo. The normal maps are registered to the scanned geometry and transformed into tangent space to recover local micro-height fields, which are queried by an optical tactile renderer, while the coarse mesh handles collision detection. For thermal reconstruction, we capture synchronized multiview infrared videos of natural cooling following controlled heating and reconstruct a physics-regularized dynamic thermal field. These representations are integrated with the visual geometry into a unified, simulator-ready object asset.
             </p>
 
             <p>
-                Across <strong>20 objects</strong>, the reconstructed assets
-                preserve contact-relevant surface structure, achieve
-                held-out thermal surface MAEs of
-                <strong>0.465 °C at 30 s</strong> and
-                <strong>0.592 °C at 45 s</strong>, improve
-                synthetic-to-real tactile object recognition, and support
-                spatially and temporally varying thermal feedback in VR.
+                Experiments on 20 objects show that the reconstructed micro-height fields preserve dominant surface structures and recover higher-frequency details beyond the coarse geometry, while the dynamic thermal fields achieve held-out surface-temperature MAEs of 0.465 ◦C and 0.592 ◦C at 30 s and 45 s, respectively. The resulting tactile assets enable high-fidelity tactile simulation, including synthetic-to-real object recognition from tactile sensor observations, while a glove-based VR system demonstrates spatially and temporally varying thermal feedback. These results highlight the potential of TouchTherm for multimodal sensory simulation and temperature-aware virtual interaction.
             </p>
 
         </div>
