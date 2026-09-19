@@ -1478,10 +1478,13 @@
                 controls
                 preload="metadata"
                 style="
-                    width: 100%;
-                    max-width: 1100px;
+                    width: min(1500px, 94vw);
+                    max-width: none;
                     height: auto;
                     display: block;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
                     margin: 0 auto;
                     border-radius: 8px;
                     background: #000;
