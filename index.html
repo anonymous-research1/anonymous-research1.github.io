@@ -1461,7 +1461,7 @@
         </div>
 
         <!-- =====================================================
-             THERMAL ROLLOUT FIGURE
+             THERMAL ROLLOUT VIDEO
         ====================================================== -->
 
         <div style="margin-top: 80px;">
@@ -1470,16 +1470,34 @@
                 Dynamic Thermal Rollout
             </h3>
 
-            <img
-                src="thermal_rollout.png"
-                alt="Reference and reconstructed thermal evolution"
-                style="width:100%; max-width:1100px; height:auto; display:block; margin:0 auto;"
+            <video
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+                preload="metadata"
+                style="
+                    width: 100%;
+                    max-width: 1100px;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                    border-radius: 8px;
+                    background: #000;
+                "
             >
+                <source
+                    src="thermal_rollout.mp4"
+                    type="video/mp4"
+                >
+                Your browser does not support HTML5 video.
+            </video>
 
             <div class="figure-caption">
-                Reference and reconstructed thermal evolution at
-                0, 30, 60, and 90 s. The reconstructed fields preserve
-                the dominant spatial temperature patterns over time.
+                Reference and reconstructed thermal evolution over time.
+                The reconstructed temperature fields preserve the dominant
+                spatial temperature patterns throughout the rollout.
             </div>
 
         </div>
