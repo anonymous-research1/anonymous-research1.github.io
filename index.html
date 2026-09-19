@@ -1618,13 +1618,22 @@
      THERMAL FEEDBACK IN VR DEMO
 ===================================================== -->
 
-<div style="margin-top: 50px;">
+<div
+    style="
+        margin-top: 50px;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    "
+>
 
     <h3
         style="
             text-align: center;
             font-size: 24px;
-            margin-bottom: 22px;
+            margin: 0 0 22px;
         "
     >
         VR Thermal Interaction Demo
@@ -1638,7 +1647,7 @@
         controls
         preload="metadata"
         style="
-            width: min(1400px, 94vw);
+            width: min(1400px, 92vw);
             max-width: none;
             height: auto;
             display: block;
@@ -1655,7 +1664,13 @@
         Your browser does not support HTML5 video.
     </video>
 
-    <div class="figure-caption">
+    <div
+        class="figure-caption"
+        style="
+            max-width: 900px;
+            margin: 16px auto 0;
+        "
+    >
         Demonstration of real-time thermal feedback in VR.
         The simulated contact temperature is continuously mapped
         to the wearable thermal device during interaction with
