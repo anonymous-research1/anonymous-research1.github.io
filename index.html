@@ -566,6 +566,55 @@
         }
 
         /* =========================================================
+           RESULT MODALITY HEADERS
+        ========================================================= */
+
+        .modality-heading {
+            margin: 48px 0 18px;
+            padding: 24px 30px 22px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .modality-heading.tactile {
+            background: #f5f9fc;
+            border: 1px solid #dbe8f2;
+            border-left: 5px solid var(--tactile);
+        }
+
+        .modality-heading.thermal {
+            margin-top: 86px;
+            background: #fff8f3;
+            border: 1px solid #f0dfd2;
+            border-left: 5px solid var(--thermal);
+        }
+
+        .modality-kicker {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--light-muted);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .modality-heading h3 {
+            margin: 0;
+            font-size: 36px;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .modality-heading p {
+            max-width: 760px;
+            margin: 8px auto 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        /* =========================================================
            RESULT BLOCKS
         ========================================================= */
 
@@ -1219,6 +1268,14 @@
              TACTILE RESULTS
         ====================================================== -->
 
+        <div class="modality-heading tactile">
+            <h3>Tactile Appearance Evaluation and Ablation</h3>
+            <p>
+                Real–Sim tactile acquisition, appearance evaluation,
+                and micro-geometry ablation across the reconstructed object assets.
+            </p>
+        </div>
+
         <div class="result-block">
 
             <div>
@@ -1356,7 +1413,15 @@
              THERMAL RESULTS
         ====================================================== -->
 
-        <div class="result-block" style="margin-top: 58px;">
+        <div class="modality-heading thermal">
+            <h3>Dynamic Thermal Evaluation</h3>
+            <p>
+                Dynamic surface-temperature reconstruction and held-out
+                long-horizon thermal rollout evaluation.
+            </p>
+        </div>
+
+        <div class="result-block">
 
             <div>
                 <span class="result-tag">Dynamic Thermal Field</span>
