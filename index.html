@@ -1578,6 +1578,56 @@
 
         </div>
 
+        <!-- =====================================================
+             INTERACTIVE THERMAL SIMULATION
+        ====================================================== -->
+
+        <div style="margin-top: 80px;">
+
+            <h3 style="text-align:center; font-size:24px; margin-bottom:12px;">
+                Interactive Thermal Simulation
+            </h3>
+
+            <p style="text-align:center; max-width:900px; margin:0 auto 24px;">
+                Move the heat source over the reconstructed object surface or
+                position it independently along the X, Y, and Z axes to explore
+                the real-time thermal evolution.
+            </p>
+
+            <iframe
+                src="thermal-simulator/"
+                title="Interactive Thermal Simulation"
+                loading="lazy"
+                allowfullscreen
+                style="
+                    width: min(1500px, 94vw);
+                    max-width: none;
+                    height: min(920px, 88vh);
+                    min-height: 680px;
+                    display: block;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin: 0 auto;
+                    border: 1px solid rgba(110, 135, 165, 0.32);
+                    border-radius: 10px;
+                    background: #050a11;
+                "
+            ></iframe>
+
+            <div class="figure-caption">
+                Browser-based interactive heat-source simulation using the
+                reconstructed object geometry and learned thermal parameters.
+                <a
+                    href="thermal-simulator/"
+                    target="_blank"
+                    rel="noopener"
+                    style="margin-left:8px;"
+                >Open the simulator in full screen.</a>
+            </div>
+
+        </div>
+
     </div>
 
 </section>

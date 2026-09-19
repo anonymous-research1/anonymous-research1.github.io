@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "name": "SquareCup",
+  "source_config": "Simulation_Platform\\simulation_config.squarecup.json",
+  "point_count": 25000,
+  "laplacian_nnz": 255356,
+  "files": {
+    "positions": {
+      "path": "positions.f32",
+      "dtype": "float32",
+      "length": 75000,
+      "bytes": 300000
+    },
+    "indptr": {
+      "path": "laplacian_indptr.u32",
+      "dtype": "uint32",
+      "length": 25001,
+      "bytes": 100004
+    },
+    "indices": {
+      "path": "laplacian_indices.u32",
+      "dtype": "uint32",
+      "length": 255356,
+      "bytes": 1021424
+    },
+    "data": {
+      "path": "laplacian_data.f32",
+      "dtype": "float32",
+      "length": 255356,
+      "bytes": 1021424
+    }
+  },
+  "bounds": {
+    "min": [
+      -43.907955169677734,
+      -34.014095306396484,
+      358.3267822265625
+    ],
+    "max": [
+      46.60084915161133,
+      43.261592864990234,
+      452.3713073730469
+    ],
+    "diagonal": 151.68304443359375
+  },
+  "physics": {
+    "alpha_m2_per_s": 7.066270171423998e-08,
+    "h_per_s": 0.0012265153291846525,
+    "ambient_temp_c": 24.0,
+    "initial_temp_c": 24.0,
+    "parameter_source": "checkpoint"
+  },
+  "simulation": {
+    "dt_s": 0.03,
+    "substeps": 1,
+    "rhs_clip_c_per_s": 250.0,
+    "min_temp_c": -50.0,
+    "max_temp_c": 300.0
+  },
+  "colorbar": {
+    "tmin_c": 24.0,
+    "tmax_c": 60.0
+  },
+  "heat_gun": {
+    "enabled": true,
+    "target_xyz": [
+      -6.043118953704834,
+      -3.117037057876587,
+      452.3713073730469
+    ],
+    "radius": 9.100982666015625,
+    "power_c_per_s": 8.0
+  },
+  "stability": {
+    "laplacian_spectral_bound_m-2": 6811235.451834351,
+    "rate_bound_per_s": 0.48252681436761197,
+    "base_step_stability_number": 0.014475804431028359,
+    "euler_stability_limit": 0.9,
+    "euler_substeps": 1,
+    "minimum_euler_substeps": 1
+  }
+}

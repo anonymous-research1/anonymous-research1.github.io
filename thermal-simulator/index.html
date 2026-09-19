@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08111d" />
+    <title>Interactive Thermal Simulation</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three.module.js",
+          "three/addons/": "./vendor/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main id="app">
+      <section id="viewport" aria-label="3D thermal simulation view">
+        <canvas id="scene"></canvas>
+        <div class="brand">
+          <span class="eyebrow">MULTIMODAL TANGIBLE OBJECT</span>
+          <h1>Interactive Thermal Field</h1>
+          <p id="object-name">Loading Square Cup…</p>
+        </div>
+        <div id="loading" role="status">
+          <div class="spinner"></div>
+          <span id="loading-text">Loading simulation data</span>
+        </div>
+        <div id="hover-readout">Move the pointer over the point cloud to read temperature</div>
+        <div class="legend" aria-label="Temperature scale">
+          <span id="legend-max">60 °C</span>
+          <div class="colorbar"></div>
+          <span id="legend-min">24 °C</span>
+        </div>
+        <div class="hint">
+          <kbd>Ctrl</kbd> + left drag: move heat source · Left drag: rotate · Wheel: zoom
+        </div>
+      </section>
+
+      <aside id="panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">REAL-TIME PDE</span>
+            <h2>Heat Source Controls</h2>
+          </div>
+          <span id="status-badge" class="badge">Loading</span>
+        </div>
+
+        <div class="metrics">
+          <div><span>Physical time</span><strong id="time-value">0.00 s</strong></div>
+          <div><span>Minimum temperature</span><strong id="min-value">--</strong></div>
+          <div><span>Maximum temperature</span><strong id="max-value">--</strong></div>
+          <div><span>Mean temperature</span><strong id="mean-value">--</strong></div>
+        </div>
+
+        <label class="toggle-row">
+          <span>Heat source enabled</span>
+          <input id="heat-enabled" type="checkbox" checked />
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+
+        <label class="control">
+          <span><b>Heat power</b><output id="power-output">8.0 °C/s</output></span>
+          <input id="power" type="range" min="0" max="32" step="0.1" value="8" />
+        </label>
+
+        <label class="control">
+          <span><b>Heat-source radius</b><output id="radius-output">--</output></span>
+          <input id="radius" type="range" min="0" max="1" step="0.001" value="0.1" />
+        </label>
+
+        <section class="axis-panel" aria-label="Heat-source position controls">
+          <div class="axis-title">
+            <b>Heat-source position (X / Y / Z)</b>
+            <small>Drag a slider, enter a value, or use − / +</small>
+          </div>
+          <div class="axis-control">
+            <div class="axis-heading">
+              <b>X</b>
+              <div class="axis-number-group">
+                <button type="button" class="axis-nudge" data-axis="x" data-direction="-1">−</button>
+                <input id="target-x-number" type="number" aria-label="Heat-source X coordinate" />
+                <button type="button" class="axis-nudge" data-axis="x" data-direction="1">+</button>
+              </div>
+            </div>
+            <input id="target-x" type="range" step="any" aria-label="Heat-source X coordinate slider" />
+          </div>
+          <div class="axis-control">
+            <div class="axis-heading">
+              <b>Y</b>
+              <div class="axis-number-group">
+                <button type="button" class="axis-nudge" data-axis="y" data-direction="-1">−</button>
+                <input id="target-y-number" type="number" aria-label="Heat-source Y coordinate" />
+                <button type="button" class="axis-nudge" data-axis="y" data-direction="1">+</button>
+              </div>
+            </div>
+            <input id="target-y" type="range" step="any" aria-label="Heat-source Y coordinate slider" />
+          </div>
+          <div class="axis-control">
+            <div class="axis-heading">
+              <b>Z</b>
+              <div class="axis-number-group">
+                <button type="button" class="axis-nudge" data-axis="z" data-direction="-1">−</button>
+                <input id="target-z-number" type="number" aria-label="Heat-source Z coordinate" />
+                <button type="button" class="axis-nudge" data-axis="z" data-direction="1">+</button>
+              </div>
+            </div>
+            <input id="target-z" type="range" step="any" aria-label="Heat-source Z coordinate slider" />
+          </div>
+        </section>
+
+        <label class="control">
+          <span><b>Point size</b><output id="point-output">3 px</output></span>
+          <input id="point-size" type="range" min="1" max="8" step="0.25" value="3" />
+        </label>
+
+        <div class="buttons">
+          <button id="pause" class="primary">Pause</button>
+          <button id="reset">Reset temperature</button>
+        </div>
+
+        <div class="physics" id="physics-info">Resolving physics parameters…</div>
+        <p id="error" hidden></p>
+      </aside>
+    </main>
+
+    <script>
+      window.__thermalAppStarted = false;
+      window.__showBootstrapError = function (message) {
+        const text = document.querySelector("#loading-text");
+        const badge = document.querySelector("#status-badge");
+        const error = document.querySelector("#error");
+        if (text) text.textContent = "Web simulator failed to start";
+        if (badge) badge.textContent = "Load failed";
+        if (error) {
+          error.hidden = false;
+          error.textContent = message;
+        }
+      };
+      window.__thermalLoadTimer = window.setTimeout(function () {
+        if (window.__thermalAppStarted) return;
+        const message = location.protocol === "file:"
+          ? "Do not open index.html directly. From the project root, run: python -m http.server 8000 --directory web_simulator, then visit http://localhost:8000/"
+          : "The web module did not start. Verify that app.js and vendor/three.module.js are accessible, then force-refresh the page.";
+        window.__showBootstrapError(message);
+      }, 6000);
+      window.addEventListener("error", function (event) {
+        if (!window.__thermalAppStarted) {
+          window.__showBootstrapError(event.message || "The web module failed to load");
+        }
+      });
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
